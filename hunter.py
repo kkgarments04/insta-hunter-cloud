@@ -112,6 +112,10 @@ def check_availability(username):
     return False
 
 def run_batch():
+    # Ensure local files exist
+    if not os.path.exists(HITS_FILE):
+        open(HITS_FILE, "a").close()
+
     state = load_state()
     length = state["current_length"]
     start_idx = state["last_index"] + 1
