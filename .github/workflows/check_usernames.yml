@@ -1,9 +1,9 @@
-name: Instagram Username Hunter
+name: Instagram Username Hunter (Unlimited Mode)
 
 on:
   schedule:
-    - cron: '*/30 * * * *' # Runs every 30 minutes
-  workflow_dispatch: # Allows manual trigger
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
 
 jobs:
   hunt:
@@ -19,7 +19,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          pip install requests
 
       - name: Run Hunter
         env:
@@ -31,6 +31,6 @@ jobs:
         run: |
           git config --global user.name "InstaHunterBot"
           git config --global user.email "bot@instahunter.com"
-          git add .
-          git commit -m "Update state and hits [skip ci]" || echo "No changes to commit"
+          git add state.json
+          git commit -m "Update state [skip ci]" || echo "No changes to commit"
           git push
