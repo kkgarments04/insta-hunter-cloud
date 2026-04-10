@@ -31,6 +31,6 @@ jobs:
         run: |
           git config --global user.name "InstaHunterBot"
           git config --global user.email "bot@instahunter.com"
-          git add state.json hits.txt
+          git add .
           git commit -m "Update state and hits [skip ci]" || echo "No changes to commit"
           git push
